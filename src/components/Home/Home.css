@@ -1,0 +1,135 @@
+.home-main-container {
+  background: #2947a1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+.bridge-base-heading {
+  margin-top: 76px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: Bangers;
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.launch-btn {
+  color: white;
+  display: flex;
+  /* width: 13%; */
+  /* width: 146px; */
+  height: 65px;
+  font-size: 27px;
+  padding: 15px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border-radius: 16px;
+  border: none;
+  background: linear-gradient(180deg, #36342b 0%, #4c4836 100%);
+  position: relative;
+  z-index: 2;
+}
+.bridgeImg {
+  width: 100%;
+  /* height: 300.774px; */
+  margin-top: -114px;
+}
+
+.icon {
+  color: white;
+  margin-top: 5px;
+
+  /* font-size: 27px;
+  display: inline-block; */
+}
+.cartoon-conatiner {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-direction: column;
+}
+.cartoonImg {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  top: -114px;
+  left: 229px;
+  z-index: 1;
+  width: 36%;
+}
+.btn-cartoon-container {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+}
+.bridge-base-conatainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.animate-img-container {
+    position: absolute;
+    top: 76%;
+    left: 0;
+    width: 100%;
+    height: 129px;
+    pointer-events: none; /* Prevent interaction with the container */
+    overflow: hidden;
+    display: flex; /* Flexbox to manage layout */
+    justify-content: space-between; /* To prevent overlap */
+    z-index: 3; /* Ensure the animation container is on top */
+  }
+  
+  .circle,
+  .eth {
+    position: absolute;
+    top: 0;
+    /* height: 50%; */
+    width: 10%;
+    pointer-events: none;
+    display: block;
+    z-index: 4; /* Ensure the animating images are above other elements */
+
+  }
+  
+  .circle {
+    animation: move-circle 5s linear infinite alternate; /* Circle animation */
+    left: -132px; /* Ensure it starts outside of the view */
+  }
+  
+  .eth {
+    animation: move-eth 5s linear infinite alternate; /* ETH animation */
+    right: -132px; /* Start outside from the right */
+  }
+  
+  @keyframes move-circle {
+    0% {
+      left: -132px; /* Start outside from the left */
+    }
+    100% {
+      left: calc(100% + 132px); /* Move to the right outside the viewport */
+    }
+  }
+  
+  @keyframes move-eth {
+    0% {
+      right: -132px; /* Start outside from the right */
+    }
+    100% {
+      right: calc(100% + 132px); /* Move to the left outside the viewport */
+    }
+  }
+  
+
+@media screen and (max-width: 712px) {
+}

@@ -1,0 +1,63 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+
+.header-main-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #2947a1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-wrap: wrap;
+}
+ul {
+  display: flex;
+  flex-direction: row;
+  gap: 33px;
+  margin-top: 17px;
+  flex-wrap: wrap;
+  list-style-type: none; /* Remove bullet points */
+
+}
+ul li {
+  font-family: Bangers;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  display: flex;
+  /* justify-content: space-around; */
+  align-items: center;
+  flex-direction: row;
+}
+ul li a {
+  text-decoration: none;
+  color: white;
+}
+
+.connect-wallet-btn {
+  color: white;
+  display: flex;
+  /* width: 16%; */
+  /* height: 50%; */
+  /* margin-top: 20px;
+    margin-left: 10px; */
+  width: 200px;
+  padding: 10px 26px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  flex-shrink: 0;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #36342b 0%, #4c4836 100%), #9c7dec;
+}
+
+@media (max-width: 1140px) {
+  .header-main-container {
+    position: sticky;
+    top: 0;
+  }
+}
+
