@@ -11,10 +11,15 @@ input[type="number"] {
 }
 
 .swap-main-container {
-  height: 130vh;
+  /* height: 100%;
+  width: 100%; */
+  height: fit-content;
   background-image: url("../../assets/Images/swapBgImg.png");
   background-size: cover;
   position: relative;
+  background-position: center center; /* Keeps the image centered */
+  background-repeat: no-repeat; /* Prevents the image from repeating */
+  /* background-attachment: fixed; Optional: Makes the background image fixed during scroll */
 }
 .send-heading-conatiner {
   display: flex;
@@ -273,7 +278,6 @@ input[type="number"] {
   line-height: 129.7%;
   text-transform: capitalize;
   width: 63%;
-
 }
 
 .slippage-heading {
@@ -303,6 +307,7 @@ input[type="number"] {
   flex-shrink: 0;
   border-radius: 18px;
   background: linear-gradient(180deg, #36342b 0%, #4c4836 100%), #9c7dec;
+  margin-bottom: 200px;
 }
 @media screen and (max-width: 917px) {
   .from-main-container {
@@ -335,5 +340,49 @@ input[type="number"] {
 @media screen and (max-width: 544px) {
   .slippage-heading {
     /* padding-left: 190px; */
+  }
+}
+
+@media screen and (max-width: 638px) {
+  .slippage-heading {
+    /* padding-left: 190px; */
+  }
+
+  .from-main-container {
+    width: 200px;
+    /* height: 150px; */
+    /* padding: 16px 21px;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 11.291px;
+    border-radius: 16.937px;
+    background: rgba(255, 255, 255, 0.2);
+    -webkit-backdrop-filter: blur(129px);
+    backdrop-filter: blur(129px);
+    flex-wrap: wrap; */
+  }
+
+  .to-main-container {
+    width: 200px;
+  }
+  .connect-wallet-btn-swap {
+    width: 200px;
+  }
+  .connect-wallet-btn-swap {
+    margin-bottom: 60px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .swap-main-container {
+      height: 100%; 
+      width: 100%; 
+      background-size: cover; 
+      background-position: center center; 
+      background-repeat: no-repeat; 
+      background-attachment: fixed;
+    }
+  }
+  .connect-wallet-btn-swap {
+    margin-bottom: 60px;
   }
 }

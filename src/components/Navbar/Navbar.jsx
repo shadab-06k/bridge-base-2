@@ -7,8 +7,8 @@ import { ToastContainer } from "react-toastify";
 
 const Navbar = () => {
   const { address, connectWallet } = useContext(WalletContext);
-  const [selectedNetwork, setSelectedNetwork] = useState("ETH"); // Default to Ethereum
-  console.log('selectedNetwork',selectedNetwork)
+  const [selectedNetwork, setSelectedNetwork] = useState("ETH");
+  console.log("selectedNetwork", selectedNetwork);
 
   const shortenAddress = (address) => {
     if (!address) return "";
@@ -17,8 +17,7 @@ const Navbar = () => {
     return `${firstPart}..${lastPart}`;
   };
   const handleConnectWallet = () => {
-      connectWallet(selectedNetwork); // Call the connectWallet function with the selected network
-  
+    connectWallet(selectedNetwork);
   };
   // const handleConnectWallet = () => {
   //   if (selectedNetwork === "ETH") {
@@ -35,24 +34,26 @@ const Navbar = () => {
     <>
       <ToastContainer />
       <header className="header-main-container">
-        <img src={navImg} alt="" loading="lazy" />
+        <Link to="/">
+          <img src={navImg} alt="" loading="lazy" />
+        </Link>
         <ul>
           <li>
             <Link to="/">HOME</Link>
           </li>
           <li>
-            <Link to="/about">ABOUT</Link>
+            <Link to="/swap">ABOUT</Link>
           </li>
           <li>
             {" "}
-            <Link to="/buy">HOW TO BUY</Link>
+            <Link to="/swap">HOW TO BUY</Link>
           </li>
           <li>
             {" "}
-            <Link to="/team">TEAM</Link>
+            <Link to="/swap">TEAM</Link>
           </li>
           <li>
-            <Link to="/contact">CONTACT US</Link>
+            <Link to="/swap">CONTACT US</Link>
           </li>
         </ul>
         <button

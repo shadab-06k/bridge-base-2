@@ -7,11 +7,11 @@ import { WalletProvider } from "./components/WalletContext/WalletContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
-  <React.StrictMode>
+  // <React.StrictMode>
     <WalletProvider>
       <App />
     </WalletProvider>
-  </React.StrictMode>
+  /* </React.StrictMode> */
 );
 
 // If you want to start measuring performance in your app, pass a function
