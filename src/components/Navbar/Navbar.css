@@ -1,4 +1,159 @@
-@import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
+.header-main-container {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  background: #2947a1;
+  box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 2px 0px;
+  /* padding: 0 20px; */
+}
+
+ul.nav-links {
+  display: flex;
+  flex-direction: row;
+  gap: 33px;
+  margin-top: 17px;
+  flex-wrap: wrap;
+  list-style-type: none; /* Remove bullet points */
+}
+
+ul.nav-links li {
+  font-family: Bangers;
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 400;
+  letter-spacing: 0.8px;
+  display: flex;
+  align-items: center;
+}
+
+ul.nav-links li a {
+  text-decoration: none;
+  color: white;
+}
+
+.connect-wallet-btn {
+  color: white;
+  display: flex;
+  width: 200px;
+  padding: 10px 26px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  border: none;
+  border-radius: 18px;
+  background: linear-gradient(180deg, #36342b 0%, #4c4836 100%), #9c7dec;
+}
+
+.hamburger-menu {
+  display: none;
+  /* justify-content: flex-end; */
+  align-items: end;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger-menu .bar {
+  width: 25px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+  transition: 0.3s;
+}
+.hamburger-menu .bar1 {
+  width: 20px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+  transition: 0.3s;
+}
+.hamburger-menu .bar2 {
+  width: 15px;
+  height: 3px;
+  background-color: white;
+  margin: 4px;
+  transition: 0.3s;
+}
+
+@media (max-width: 808px) {
+
+  .header-main-container {
+    position: sticky;
+    top: 0;
+    width: 100%;
+    padding: 10px 20px;
+    flex-wrap: nowrap;
+    justify-content: space-between;
+  }
+ 
+  .hamburger-menu {
+    display: flex;
+  }
+
+  ul.nav-links {
+    position: fixed;
+    top: 70px;
+    right: 0;
+    height: 100vh;
+    /* height: 64vh; */
+    background-color: #2947a1;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    gap: 20px;
+    transition: transform 0.3s ease-in-out;
+    transform: translateX(100%);
+  }
+
+  ul.nav-links.active {
+    transform: translateX(0);
+  }
+
+  ul.nav-links li {
+    margin: 20px 0;
+  }
+
+  .connect-wallet-btn {
+    margin-top: 0px;
+  }
+
+  /* .bar{
+    width: 100%;
+  } */
+/* 
+  .bar1{
+    width: 70%;
+  }
+
+  .bar2{
+    width: 40%;
+  } */
+
+  .hamburger-menu.open .bar:nth-child(1) {
+    width: 100%;
+
+    transform: rotate(-45deg) translate(-5px, 6px);
+  }
+
+  .hamburger-menu.open .bar:nth-child(2) {
+    opacity: 0;
+  }
+
+  .hamburger-menu.open .bar:nth-child(3) {
+    width: 100%;
+    transform: rotate(45deg) translate(-5px, -6px);
+  }
+}
+
+ 
+
+
+
+/* @import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 
 .header-main-container {
   position: sticky;
@@ -17,7 +172,7 @@ ul {
   gap: 33px;
   margin-top: 17px;
   flex-wrap: wrap;
-  list-style-type: none; /* Remove bullet points */
+  list-style-type: none; 
 
 }
 ul li {
@@ -27,7 +182,6 @@ ul li {
   font-weight: 400;
   letter-spacing: 0.8px;
   display: flex;
-  /* justify-content: space-around; */
   align-items: center;
   flex-direction: row;
 }
@@ -39,10 +193,6 @@ ul li a {
 .connect-wallet-btn {
   color: white;
   display: flex;
-  /* width: 16%; */
-  /* height: 50%; */
-  /* margin-top: 20px;
-    margin-left: 10px; */
   width: 200px;
   padding: 10px 26px;
   justify-content: center;
@@ -60,4 +210,4 @@ ul li a {
     top: 0;
   }
 }
-
+ */
