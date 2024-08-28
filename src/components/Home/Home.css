@@ -1,12 +1,17 @@
 .home-main-container {
+  /* height: 100%; */
   background: #2947a1;
   display: flex;
   justify-content: center;
   align-items: center;
+  min-height: 100vh; /* Ensure the container fills the viewport height */
   flex-direction: column;
+  overflow-x: hidden; /* Prevent any horizontal scrolling */
 }
+
 .bridge-base-heading {
   margin-top: 76px;
+  /* margin-top: 227px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -130,6 +135,11 @@
 }
 
 @media screen and (max-width: 720px) {
+  .home-main-container {
+    padding: 0; /* Remove padding to avoid extra white space */
+    overflow-x: hidden; /* Ensure no horizontal scrolling */
+
+  }
   .cartoonImg {
     flex-direction: column;
     /* position: relative;
@@ -143,7 +153,7 @@
   }
   .bridgeImg {
     width: 100%;
-    margin-top: 0px;
+    margin-top: 0;
   }
 
   .animate-img-container {
@@ -152,9 +162,10 @@
   }
   .circle {
     display: none;
-    animation: none
+    animation: none;
+  }
+
+  .eth {
+    display: none;
+  }
 }
-}
-
-
-
