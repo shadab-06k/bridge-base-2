@@ -6,7 +6,12 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import circle from "../../assets/Images/circle.png";
 import eth from "../../assets/Images/eth.png";
 import { useNavigate } from "react-router-dom";
+import { BiLogoDiscord } from "react-icons/bi";
+import { BsTwitter } from "react-icons/bs";
+import { BsGithub } from "react-icons/bs";
+import { FaMedium } from "react-icons/fa6";
 
+import img from "../../assets/Images/brimg.png";
 const Home = () => {
   const navigate = useNavigate();
   const handleOnLaunchClick = () => {
@@ -16,7 +21,7 @@ const Home = () => {
     <>
       <div className="home-main-container">
         <div className="bridge-base-conatainer">
-          <h2 className="bridge-base-heading">Bridge BASE</h2>
+          <h1 className="bridge-base-heading">Click to Launch</h1>
           <button
             className="launch-btn"
             type="button"
@@ -27,61 +32,22 @@ const Home = () => {
           </button>
         </div>
 
-        <img
-          className="cartoonImg"
-          src={cartoonImg}
-          alt="Cartoon"
-          loading="lazy"
-        />
-
-        <img
-          className="bridgeImg"
-          src={bridgeImg}
-          alt="Bridge"
-          loading="lazy"
-        />
-      </div>
-      <div className="animate-img-container">
-        <img className="circle" src={circle} alt="" loading="lazy" />
-        <img className="eth" src={eth} alt="" loading="lazy" />
+        <img className="cartoonImg" src={img} alt="Cartoon" loading="lazy" />
+        <div className="d-flex flex-row icons-container">
+          <BiLogoDiscord className="icons" />
+          <BsTwitter className="icons" />
+          <BsGithub className="icons" />
+          <FaMedium className="icons" />
+        </div>
+        <div className="d-flex flex-row faq-container">
+          <p className="faq">FAQ</p>
+          <p className="faq">Docs</p>
+          <p className="faq">Forms</p>
+          <p className="faq">Careers</p>
+        </div>
       </div>
     </>
   );
 };
 
 export default Home;
-
-// import React from "react";
-// import "./Home.css";
-// import bridgeImg from "../../assets/Images/bridgeImage1.png";
-// import cartoonImg from "../../assets/Images/cartoon1.png";
-// import { MdKeyboardArrowRight } from "react-icons/md";
-
-// const Home = () => {
-//   return (
-//     <>
-//       <div className="home-main-container">
-//         <h2 className="bridge-base-heading">Bridge BASE</h2>
-//         <button
-//           className="launch-btn"
-//           //   onClick={handleConnectWallet}
-//           type="button"
-//         >
-//           Launch
-//           <MdKeyboardArrowRight className="icon" />
-//           <div className="cartoon-conatiner">
-//             <img
-//               className="cartoonImg"
-//               src={cartoonImg}
-//               alt=""
-//               loading="lazy"
-//             />
-//           </div>
-//         </button>
-//         <img className="bridgeImg" src={bridgeImg} alt="" loading="lazy" />
-//       </div>
-//     </>
-//   );
-// };
-
-// export default Home;

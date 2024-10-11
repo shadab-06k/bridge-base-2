@@ -2,8 +2,9 @@
   position: sticky;
   top: 0;
   z-index: 1000;
-  background: #2947a1;
+  background: #6d43d4;
   box-shadow: 0px 4px 4px 0px rgba(0, 0, 0, 0.25);
+  /* background: #2947a1; */
   display: flex;
   justify-content: space-evenly;
   align-items: center;
@@ -45,7 +46,7 @@ ul.nav-links li a {
   gap: 10px;
   border: none;
   border-radius: 18px;
-  background: linear-gradient(180deg, #36342b 0%, #4c4836 100%), #9c7dec;
+  background: linear-gradient(180deg, #9C7DEC 0%, #3E0ABC 100%), linear-gradient(180deg, #36342B 0%, #4C4836 100%), #9C7DEC;
 }
 
 .hamburger-menu {
@@ -79,7 +80,6 @@ ul.nav-links li a {
 }
 
 @media (max-width: 808px) {
-
   .header-main-container {
     position: sticky;
     top: 0;
@@ -88,7 +88,7 @@ ul.nav-links li a {
     flex-wrap: nowrap;
     justify-content: space-between;
   }
- 
+
   .hamburger-menu {
     display: flex;
   }
@@ -124,7 +124,7 @@ ul.nav-links li a {
   /* .bar{
     width: 100%;
   } */
-/* 
+  /* 
   .bar1{
     width: 70%;
   }
@@ -148,10 +148,6 @@ ul.nav-links li a {
     transform: rotate(45deg) translate(-5px, -6px);
   }
 }
-
- 
-
-
 
 /* @import url("https://fonts.googleapis.com/css2?family=Bangers&display=swap");
 

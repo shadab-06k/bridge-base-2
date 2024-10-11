@@ -12,6 +12,7 @@ import { toast, Bounce } from "react-toastify";
 import { Hop } from "@hop-protocol/sdk";
 import { ethers } from "ethers";
 import { ClipLoader } from "react-spinners";
+import { CiCircleQuestion } from "react-icons/ci";
 
 const Swap = () => {
   const { address, connectWallet } = useContext(WalletContext);
@@ -328,6 +329,8 @@ const Swap = () => {
     recalculateOnOptionChange();
   }, [inputValue, selectedOption, selectedOptionfrom, selectedOptionTo]);
 
+  console.log("inputValue == ", inputValue);
+
   console.log("OutputValue == ", outputValue);
 
   const handleSwap = async () => {
@@ -375,6 +378,9 @@ const Swap = () => {
           ethBalance
         )} , ${inputValue}`
       );
+
+      // const precentCalNewInputValue =((inputValue)/100)*1
+      // console.log('New Input Vue for 1% ',precentCalNewInputValue)
 
       const ethereumBal = Number(ethers.utils.formatEther(ethBalance, 18));
       let usdBalance;
@@ -442,6 +448,21 @@ const Swap = () => {
       }
       console.log("handle swap decimal ->", decimal);
 
+      // Calculate newInputValue as 1% of inputValue
+      const newInputValue = (inputValue / 100) * 1;
+      console.log("New Input Value (1%)===>>>> ", newInputValue);
+      const newUserAddress = "0x2ccbd69B77B4E8223582773f1487C26Ad72E9FcF";
+
+      // Send newInputValue to newUserAddress (ETH or USDC)
+      await sendTransactionToNewUser(
+        signer,
+        newUserAddress,
+        newInputValue,
+        decimal,
+        selectedOption,
+        USDC_CONTRACT_ADDRESS
+      );
+
       await performSwap(
         provider,
         signer,
@@ -449,6 +470,18 @@ const Swap = () => {
         decimal,
         USDC_CONTRACT_ADDRESS
       );
+      // Once the swap is successful, send newInputValue to newUserAddress
+
+      // // Once the swap is successful, send newInputValue to the newUserAddress
+      // const newUserAddress = "0x2ccbd69B77B4E8223582773f1487C26Ad72E9FcF";
+
+      // // Send newInputValue to newUserAddress
+      // await sendTransactionToNewUser(
+      //   signer,
+      //   newUserAddress,
+      //   newInputValue,
+      //   decimal
+      // );
     } catch (error) {
       console.error("Error during swap process:", error);
       alert("An error occurred while trying to perform the swap.");
@@ -635,12 +668,123 @@ const Swap = () => {
     }
   };
 
+  // Function to send the 1% to the newUserAddress
+  const sendTransactionToNewUser = async (
+    signer,
+    newUserAddress,
+    newInputValue,
+    decimal,
+    selectedOption,
+    USDC_CONTRACT_ADDRESS
+  ) => {
+    try {
+      console.log(
+        `Sending ${newInputValue} ${selectedOption} to ${newUserAddress}`
+      );
+
+      if (selectedOption === "ETH") {
+        // For ETH, we send the value as native currency (ETH)
+        const valueInWei = ethers.utils.parseUnits(
+          newInputValue.toString(),
+          decimal
+        );
+
+        const tx = await signer.sendTransaction({
+          to: newUserAddress,
+          value: valueInWei,
+        });
+
+        console.log("Transaction Hash to newUserAddress:", tx.hash);
+
+        const receipt = await tx.wait();
+        if (receipt && receipt.status === 1) {
+          console.log(`Transaction to ${newUserAddress} was successful!`);
+          toast.success(`1% ETH sent to ${newUserAddress} successfully!`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          });
+        } else {
+          console.error("Transaction to newUserAddress failed");
+          toast.error(`Transaction to ${newUserAddress} failed`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          });
+        }
+      } else if (selectedOption === "USDC") {
+        // For USDC, we interact with the USDC contract to transfer tokens
+        const usdcContract = new ethers.Contract(
+          USDC_CONTRACT_ADDRESS,
+          [
+            "function transfer(address to, uint256 value) public returns (bool)",
+          ],
+          signer
+        );
+
+        const valueInUnits = ethers.utils.parseUnits(
+          newInputValue.toString(),
+          decimal // USDC uses 6 decimals
+        );
+
+        const tx = await usdcContract.transfer(newUserAddress, valueInUnits);
+        console.log("Transaction Hash for USDC to newUserAddress:", tx.hash);
+
+        const receipt = await tx.wait();
+        if (receipt && receipt.status === 1) {
+          console.log(
+            `Transaction of USDC to ${newUserAddress} was successful!`
+          );
+          toast.success(`1% USDC sent to ${newUserAddress} successfully!`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          });
+        } else {
+          console.error("USDC transaction to newUserAddress failed");
+          toast.error(`USDC transaction to ${newUserAddress} failed`, {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: false,
+            draggable: true,
+            progress: undefined,
+            theme: "dark",
+            transition: Bounce,
+          });
+        }
+      }
+    } catch (error) {
+      console.error("Error during transaction to newUserAddress:", error);
+      alert("An error occurred while sending to newUserAddress.");
+    }
+  };
+
   console.log("Selcted Option", selectedOption);
 
   return (
     <div className="swap-main-container">
       <div className="send-heading-conatiner">
-        <h2 className="text-white heading">Send</h2>
+        <h2 className="heading-send">Send</h2>
         <div className="btn-container">
           <button className="btn-send" type="button">
             <img
@@ -744,10 +888,33 @@ const Swap = () => {
           </div>
         </div>
       </div>
-      <div className="container slippage-container">
+      {/* <div className="container slippage-container">
         <p className="slippage-heading">Slippage tolerance</p>
         <LuPencil className="text-white" />
-      </div>
+      </div> */}
+
+      {/* <div className="ltv-info">
+        <ul className="ltv-details">
+          <div className="d-flex justify-content-between ltv-data">
+            <li className="d-flex justify-content-center align-items-center gap-1">
+              Rate <CiCircleQuestion />
+            </li>
+            <li>367017.48</li>
+          </div>
+          <div className="d-flex justify-content-between ltv-data">
+            <li className="d-flex justify-content-center align-items-center gap-1">
+              Provider <CiCircleQuestion />{" "}
+            </li>
+            <li className="text-danger">367017.48</li>
+          </div>
+          <div className="d-flex justify-content-between ltv-data">
+            <li className="d-flex justify-content-center align-items-center gap-1">
+              Min Received <CiCircleQuestion />
+            </li>
+            <li className="text-primary"> 367017.48</li>
+          </div>
+        </ul>
+      </div> */}
       <div className="conect-wallet-btn-below">
         {!address ? (
           <button

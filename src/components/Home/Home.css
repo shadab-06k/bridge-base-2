@@ -1,17 +1,102 @@
+@import url("https://fonts.googleapis.com/css2?family=League+Spartan:wght@100..900&display=swap");
+
 .home-main-container {
-  /* height: 100%; */
+  /* background: #000; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 150vh;
+  flex-direction: column;
+  overflow-x: hidden;
+  background-image: url("../../assets/Images/glassEff.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.bridge-base-heading {
+  /* margin-top: 16px; */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-family: "League Spartan";
+  font-size: 72px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}
+
+.launch-btn {
+  margin-top: 40px;
+  color: white;
+  display: flex;
+  height: 65px;
+  font-size: 27px;
+  padding: 15px 34px;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+  border: none;
+  border-radius: 16px;
+  background: linear-gradient(180deg, #9c7dec 0%, #3e0abc 100%);
+  position: relative;
+  z-index: 2;
+}
+
+.bridge-base-conatainer {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  flex-direction: column;
+}
+
+.cartoonImg {
+  margin-top: 60px;
+}
+
+.icons-container {
+  display: flex;
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.icons {
+  color: white;
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+
+}
+
+.faq-container {
+  margin-top: 20px;
+  gap: 40px;
+}
+
+.faq {
+  color: #fff;
+  font-family: Lato;
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: normal;
+  cursor: pointer;
+}
+
+/* .home-main-container {
   background: #2947a1;
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 100vh; /* Ensure the container fills the viewport height */
+  min-height: 100vh; 
   flex-direction: column;
-  overflow-x: hidden; /* Prevent any horizontal scrolling */
+  overflow-x: hidden; 
 }
 
 .bridge-base-heading {
   margin-top: 76px;
-  /* margin-top: 227px; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -26,8 +111,7 @@
 .launch-btn {
   color: white;
   display: flex;
-  /* width: 13%; */
-  /* width: 146px; */
+
   height: 65px;
   font-size: 27px;
   padding: 15px 34px;
@@ -43,7 +127,6 @@
 }
 .bridgeImg {
   width: 100%;
-  /* height: 300.774px; */
   margin-top: -114px;
 }
 
@@ -52,7 +135,7 @@
   margin-top: 5px;
 
   /* font-size: 27px;
-  display: inline-block; */
+  display: inline-block; 
 }
 .cartoon-conatiner {
   display: flex;
@@ -88,68 +171,63 @@
   left: 0;
   width: 100%;
   height: 129px;
-  pointer-events: none; /* Prevent interaction with the container */
+  pointer-events: none; 
   overflow: hidden;
-  display: flex; /* Flexbox to manage layout */
-  justify-content: space-between; /* To prevent overlap */
-  z-index: 3; /* Ensure the animation container is on top */
+  display: flex; 
+  justify-content: space-between; 
+  z-index: 3; 
 }
 
 .circle,
 .eth {
   position: absolute;
   top: 0;
-  /* height: 50%; */
   width: 10%;
   pointer-events: none;
   display: block;
-  z-index: 4; /* Ensure the animating images are above other elements */
+  z-index: 4; 
 }
 
 .circle {
-  animation: move-circle 5s linear infinite alternate; /* Circle animation */
-  left: -132px; /* Ensure it starts outside of the view */
+  animation: move-circle 5s linear infinite alternate; 
+  left: -132px; 
 }
 
 .eth {
-  animation: move-eth 5s linear infinite alternate; /* ETH animation */
-  right: -132px; /* Start outside from the right */
+  animation: move-eth 5s linear infinite alternate; 
+  right: -132px; 
 }
 
 @keyframes move-circle {
   0% {
-    left: -132px; /* Start outside from the left */
+    left: -132px; 
   }
   100% {
-    left: calc(100% + 132px); /* Move to the right outside the viewport */
+    left: calc(100% + 132px); 
   }
 }
 
 @keyframes move-eth {
   0% {
-    right: -132px; /* Start outside from the right */
+    right: -132px; 
   }
   100% {
-    right: calc(100% + 132px); /* Move to the left outside the viewport */
+    right: calc(100% + 132px); 
   }
 }
 
 @media screen and (max-width: 720px) {
   .home-main-container {
-    padding: 0; /* Remove padding to avoid extra white space */
-    overflow-x: hidden; /* Ensure no horizontal scrolling */
+    padding: 0; 
+    overflow-x: hidden;
 
   }
   .cartoonImg {
     flex-direction: column;
-    /* position: relative;
-    top: -114px;
-    left: 229px;
-    z-index: 1; */
+ 
     top: 0px;
     left: 42px;
-    /* z-index: 1; */
-    /* width: 36%; */
+ 
   }
   .bridgeImg {
     width: 100%;
@@ -168,4 +246,4 @@
   .eth {
     display: none;
   }
-}
+} */
