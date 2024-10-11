@@ -32,7 +32,7 @@ jobs:
         uses: actions/download-artifact@v3  # Updated to v3
         with:
           name: build
-          path: dist  # Change build to dist if the output directory is named dist
+          path: build  # Change build to dist if the output directory is named dist
       - name: Deploy to Firebase
         uses: w9jds/firebase-action@master
         with:
